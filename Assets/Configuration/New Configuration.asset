@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63253e715c76080478a057929613ced2, type: 3}
+  m_Name: New Configuration
+  m_EditorClassIdentifier: 
+  LevelWidth: 3
+  LevelHeight: 3
+  ChainLength: 3
+  RingView: {fileID: 526982114453654898, guid: d2e666ae716834d4090e49441b891813, type: 3}
+  CrossView: {fileID: 5862552954827027811, guid: 2d90e76d0e6803845aca1d9d154d11a8, type: 3}
+  CellView: {fileID: 9014488919257169207, guid: 748eb87e68982634ab81d7ee30098072, type: 3}
+  Offset: {x: 0.1, y: 0.1}
