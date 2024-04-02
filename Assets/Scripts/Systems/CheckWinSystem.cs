@@ -1,7 +1,7 @@
 using Components;
 using Leopotam.Ecs;
-using System.Collections.Generic;
 using UnityEngine;
+using Extensions;
 
 namespace Systems
 {
@@ -18,20 +18,22 @@ namespace Systems
                 ref var position = ref _filter.Get1(index);
                 ref var type = ref _filter.Get2(index);
 
-                var chainLength = _gameState.Cells.GetLongestChain(position.Value);
-                if (chainLength >= _configuration.ChainLength)
+                var chain = _gameState.Cells.GetLongestChain(position.Value);
+                if (chain.Length >= _configuration.ChainLength)
                 {
-                    _filter.GetEntity(index).Get<Winner>();
+                    ref var entity = ref _filter.GetEntity(index);
+                    entity.Get<Winner>();
+                    entity.Get<WinChain>().Direction = chain.Direction;
+                    Vector2Int currentPosition = position.Value;
+                    for (int i = 0; i < chain.Length - 1; i++)
+                    {
+                        currentPosition += chain.Direction;
+                        EcsEntity nextEntity = _gameState.Cells[currentPosition];
+                        nextEntity.Get<WinChain>().Direction = chain.Direction;
+                    }
+                    break;
                 }
             }
-        }
-    }
-
-    public static class GameExtensions
-    {
-        public static int GetLongestChain(this Dictionary<Vector2Int, EcsEntity> cells, Vector2Int position)
-        {
-            return 0;
         }
     }
 }

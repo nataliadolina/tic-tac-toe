@@ -19,7 +19,7 @@ public class SetCameraSystem : IEcsInitSystem
 
             var camera = _sceneData.Camera;
             camera.orthographic = true;
-            camera.orthographicSize = height / 2f + (height - 1) * _configuration.Offset.y / 2;
+            camera.orthographicSize = 1 + height / 2f + (height - 1) * _configuration.Offset.y / 2;
             _sceneData.CameraTransform.position = new Vector3(width / 2f + (width - 1) * _configuration.Offset.x / 2, height / 2f + (height - 1) * _configuration.Offset.y / 2, 0);
         }
     }

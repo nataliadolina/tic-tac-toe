@@ -13,4 +13,6 @@ public class Configuration : ScriptableObject
 
     public CellView CellView;
     public Vector2 Offset;
+
+    public LineView WinLine;
 }

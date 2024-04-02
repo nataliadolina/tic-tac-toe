@@ -27,6 +27,8 @@ namespace Client {
                 .Add(new ConstrolSystem())
                 .Add(new AnalyzeClickSystem())
                 .Add(new CreateTakenViewSystem())
+                .Add(new CheckWinSystem())
+                .Add(new DrawWinLineSystem())
                 .OneFrame<UpdateCameraEvent>()
                 .OneFrame<Clicked>()
                 // register your systems here, for example:
@@ -47,7 +49,7 @@ namespace Client {
         }
 
         void Update () {
-            _systems?.Run ();
+            _systems?.Run();
         }
 
         void OnDestroy () {

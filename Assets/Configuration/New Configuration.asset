@@ -19,3 +19,4 @@ MonoBehaviour:
   CrossView: {fileID: 5862552954827027811, guid: 2d90e76d0e6803845aca1d9d154d11a8, type: 3}
   CellView: {fileID: 9014488919257169207, guid: 748eb87e68982634ab81d7ee30098072, type: 3}
   Offset: {x: 0.1, y: 0.1}
+  WinLine: {fileID: 4483774815590674858, guid: b24f06c1891b1d249af5b2002f62f9ad, type: 3}

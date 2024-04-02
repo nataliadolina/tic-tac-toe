@@ -2,7 +2,7 @@
 
 namespace Components
 {
-    internal struct Taken
+    public struct Taken
     {
         public SignType Value;
     }
