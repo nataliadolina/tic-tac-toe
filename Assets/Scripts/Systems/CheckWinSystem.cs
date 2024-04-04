@@ -7,9 +7,11 @@ namespace Systems
 {
     internal class CheckWinSystem : IEcsRunSystem
     {
-        private EcsFilter<Position, Taken, CheckWinEvent> _filter;
+        private EcsWorld _world;
         private GameState _gameState;
         private Configuration _configuration;
+
+        private EcsFilter<Position, Taken, CheckWinEvent> _filter;
 
         public void Run()
         {
@@ -31,6 +33,9 @@ namespace Systems
                         EcsEntity nextEntity = _gameState.Cells[currentPosition];
                         nextEntity.Get<WinChain>().Direction = chain.Direction;
                     }
+
+                    entity.Get<ShowPanelEvent>().PanelType = PanelType.Win;
+                    _world.NewEntity().Get<DisableControlSystemEvent>();
                     break;
                 }
             }

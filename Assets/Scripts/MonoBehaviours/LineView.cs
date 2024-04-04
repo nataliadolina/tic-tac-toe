@@ -7,5 +7,10 @@ namespace MonoBehaviours
     {
         public Transform spriteTransform;
         public EcsEntity Entity { get; set; }
+
+        public void DestroyGameObject()
+        {
+            Destroy(gameObject);
+        }
     }
 }

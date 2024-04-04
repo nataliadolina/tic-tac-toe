@@ -12,6 +12,7 @@ namespace Systems
         private Configuration _configuration;
 
         void IEcsRunSystem.Run () {
+
             foreach (var index in _filter)
             {
                 var position = _filter.Get2(index).Value.transform.position;

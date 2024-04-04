@@ -8,5 +8,10 @@ namespace MonoBehaviours
     public class SignView : MonoBehaviour
     {
         public EcsEntity Entity { get; set; }
+
+        public void DestroyGameObject()
+        {
+            Destroy(gameObject);
+        }
     }
 }

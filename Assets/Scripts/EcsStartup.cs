@@ -2,6 +2,7 @@ using Leopotam.Ecs;
 using UnityEngine;
 using Systems;
 using Components;
+using System.Collections.Generic;
 
 namespace Client {
     sealed class EcsStartup : MonoBehaviour {
@@ -10,7 +11,9 @@ namespace Client {
 
         public Configuration Configuration;
         public SceneData SceneData;
-        void Start () {
+
+        private Dictionary<string, int> systemNameIndexMap = new Dictionary<string, int>();
+        private void Start () {
             // void can be switched to IEnumerator for support coroutines.
             
             _world = new EcsWorld ();
@@ -24,28 +27,27 @@ namespace Client {
                 .Add(new InitializeFieldSystem())
                 .Add(new CreateCellViewSystem())
                 .Add(new SetCameraSystem())
-                .Add(new ConstrolSystem())
+
+                .Add(new ConstrolSystem(), nameof(ConstrolSystem))
                 .Add(new AnalyzeClickSystem())
                 .Add(new CreateTakenViewSystem())
+
                 .Add(new CheckWinSystem())
                 .Add(new DrawWinLineSystem())
+                
+                .Add(new PlayAgainSystem())
+
+                .Add(new ShowPanelSystem())
+                .Add(new SetWinTextSystem())
                 .OneFrame<UpdateCameraEvent>()
                 .OneFrame<Clicked>()
-                // register your systems here, for example:
-                // .Add (new TestSystem1 ())
-                // .Add (new TestSystem2 ())
-
-                // register one-frame components (order is important), for example:
-                // .OneFrame<TestComponent1> ()
-                // .OneFrame<TestComponent2> ()
-
-                // inject service instances here (order doesn't important), for example:
-                // .Inject (new CameraService ())
-                // .Inject (new NavMeshSupport ())
+                .OneFrame<CheckWinEvent>()
+                .OneFrame<ShowPanelEvent>()
+                .OneFrame<SetWinTextEvent>()
                 .Inject(Configuration)
                 .Inject(SceneData)
                 .Inject(gameState)
-                .Init ();
+                .Init();
         }
 
         void Update () {
@@ -59,6 +61,12 @@ namespace Client {
                 _world.Destroy ();
                 _world = null;
             }
+        }
+
+        public void SetRunSystemState(string name, bool state)
+        {
+            var idx = _systems.GetNamedRunSystem(name);
+            _systems.SetRunSystemState(idx, state);
         }
     }
 }

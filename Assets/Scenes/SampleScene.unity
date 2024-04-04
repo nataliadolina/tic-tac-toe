@@ -135,6 +135,7 @@ GameObject:
   - component: {fileID: 38809499}
   - component: {fileID: 38809498}
   - component: {fileID: 38809497}
+  - component: {fileID: 38809501}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -217,6 +218,7 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 519943558}
   - {fileID: 1417327829}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -225,6 +227,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &38809501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 38809496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb5a0b02339869f4fbaa2c103330e419, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panels:
+  - PanelType: 1
+    GameObject: {fileID: 1417327828}
+  WinText: {fileID: 1201470352}
 --- !u!1 &90746342
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +389,7 @@ GameObject:
   - component: {fileID: 519943561}
   - component: {fileID: 519943560}
   - component: {fileID: 519943559}
+  - component: {fileID: 519943562}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -391,7 +410,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 90746343}
-  m_Father: {fileID: 1417327829}
+  m_Father: {fileID: 38809500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
@@ -480,6 +499,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519943557}
   m_CullTransparentMesh: 1
+--- !u!114 &519943562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519943557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ccac33e4caffa074991094e4d1de3848, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Clicked: 0
 --- !u!1 &829488782
 GameObject:
   m_ObjectHideFlags: 0
@@ -606,7 +638,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 37, y: -53}
+  m_AnchoredPosition: {x: 84, y: -53}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1201470352
@@ -629,7 +661,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Cross has won
+  m_text: Cross win
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -735,7 +767,6 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 519943558}
   - {fileID: 1201470351}
   m_Father: {fileID: 38809500}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -881,6 +912,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CameraTransform: {fileID: 829488785}
   Camera: {fileID: 829488784}
+  Panels: {fileID: 38809501}
+  StartUp: {fileID: 2134901420}
+  PlayAgainButton: {fileID: 519943562}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
